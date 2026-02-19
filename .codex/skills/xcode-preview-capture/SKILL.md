@@ -11,15 +11,17 @@ Use this skill to build SwiftUI previews and inspect screenshots.
 
 - Xcode + iOS Simulator installed
 - Swift toolchain (preview-tool auto-builds on first run)
-- `PREVIEW_BUILD_PATH` set to this repository root
-  - Example: `export PREVIEW_BUILD_PATH=/absolute/path/to/XcodePreviews`
+- Scripts available at `${PREVIEW_BUILD_PATH:-$HOME/XcodePreviews}/scripts/`
+- If your clone is elsewhere, set `PREVIEW_BUILD_PATH` to this repository root
+- Example: `export PREVIEW_BUILD_PATH=/absolute/path/to/XcodePreviews`
+- Legacy clone path: `export PREVIEW_BUILD_PATH=$HOME/Claude-XcodePreviews`
 
 ## Primary Command
 
 Use the unified entry point first:
 
 ```bash
-"${PREVIEW_BUILD_PATH}"/scripts/preview \
+"${PREVIEW_BUILD_PATH:-$HOME/XcodePreviews}"/scripts/preview \
   "<path-to-file.swift>" \
   --output /tmp/preview.png
 ```
@@ -32,7 +34,7 @@ The script auto-detects:
 ## Capture Current Simulator
 
 ```bash
-"${PREVIEW_BUILD_PATH}"/scripts/preview \
+"${PREVIEW_BUILD_PATH:-$HOME/XcodePreviews}"/scripts/preview \
   --capture \
   --output /tmp/preview.png
 ```
@@ -46,6 +48,6 @@ The script auto-detects:
 
 ## Troubleshooting
 
-- No simulator booted: run `sim-manager.sh boot "iPhone 17 Pro"`.
+- No simulator booted: run `"${PREVIEW_BUILD_PATH:-$HOME/XcodePreviews}"/scripts/sim-manager.sh boot "iPhone 17 Pro"`.
 - Build failure: surface the error and suggest targeted fixes.
 - Wrong project detected: pass `--project` or `--workspace` explicitly.

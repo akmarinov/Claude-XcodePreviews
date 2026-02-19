@@ -99,7 +99,7 @@ The `preview` script auto-detects the best approach:
 ./scripts/preview MyView.swift --output ~/Desktop/preview.png
 
 # Capture current simulator
-./scripts/preview --capture-only
+./scripts/preview --capture
 ```
 
 ### Direct Scripts
@@ -177,6 +177,13 @@ cp -R "$PREVIEW_BUILD_PATH"/.codex/skills/xcode-preview-capture/* \
 ```
 
 Set `PREVIEW_BUILD_PATH` in your shell profile so Codex can invoke the scripts from any location.
+
+### Codex Skill Format Notes
+
+- Codex skills are defined as `SKILL.md` files with YAML frontmatter (`name`, `description`) followed by Markdown instructions.
+- This repository keeps the skill source at `.codex/skills/xcode-preview-capture/SKILL.md`.
+- The user-level install path used here is `~/.codex/skills/public/xcode-preview-capture/`.
+- Official Codex skill docs: <https://developers.openai.com/codex/skills>. (The docs also describe the `~/.agents/skills/` convention used in some Codex environments.)
 
 ### Use with Codex
 

@@ -4,7 +4,7 @@ Build a SwiftUI view and capture its rendered output for visual analysis.
 
 ## Arguments
 
-$ARGUMENTS - File path, or options like --scheme, --workspace, --capture-only
+$ARGUMENTS - File path, or options like --scheme, --workspace, --capture
 
 ## Instructions
 
@@ -118,14 +118,14 @@ User: /preview MyView.swift
 
 **Just capture current simulator:**
 ```
-User: /preview --capture-only
+User: /preview --capture
 → Screenshot current simulator state
 → Analyze what's shown
 ```
 
 ### Error Handling
 
-- **No simulator booted**: Run `sim-manager.sh boot "iPhone 17 Pro"`
+- **No simulator booted**: Run `"${PREVIEW_BUILD_PATH:-$HOME/XcodePreviews}"/scripts/sim-manager.sh boot "iPhone 17 Pro"`
 - **Build failure**: Show error, suggest fixes, offer to retry
 - **Resource bundle crash**: The dynamic script auto-includes Tuist and common bundle patterns
 - **Missing imports**: Check if the target module needs to be added to imports

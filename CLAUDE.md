@@ -15,7 +15,7 @@ A toolkit for building and capturing SwiftUI previews for visual analysis.
 ./scripts/preview Sources/Module/MyView.swift
 
 # Just capture current simulator
-./scripts/preview --capture-only
+./scripts/preview --capture
 ```
 
 ## How It Works

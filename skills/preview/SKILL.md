@@ -101,7 +101,7 @@ The user can specify:
 ```
 User: /preview ContentView.swift
 User: /preview --project MyApp.xcodeproj --scheme MyApp
-User: /preview --capture-only
+User: /preview --capture
 ```
 
 ## Error Handling
